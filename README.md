@@ -7,17 +7,21 @@ For examples and inspiration: [http://hipstercircuits.com/?cat=5](http://hipster
  
 To install:  
 ----------
+
     git clone https://intelligentagent@bitbucket.org/intelligentagent/pypruss.git  
     cd pypruss
     python setup.py install
     export LD_LIBRARY_PATH=/usr/local/lib  
   
-Note that you must load the uio_pruss kernel module. There is a function for 
+**Note**: that you must load the uio_pruss kernel module. There is a function for 
 loading and unloading this in the library called modprobe() with an optional 
-argument for the DDR size. To do it manually its "modprobe uio_pruss". This must be done 
+argument for the DDR size. To do it manually it's `modprobe uio_pruss`. This must be done 
 on every boot. 
 
-Update: It appears there is trouble with the pasm compiler. The following might not work..
+Also, you need to activate the PRU using:
+```
+echo BB-BONE-PRU-01 > /sys/devices/bone_capemgr.8/slots #activate the PRU
+```
 
 To try the blinkled example:  
 ----------------------------
